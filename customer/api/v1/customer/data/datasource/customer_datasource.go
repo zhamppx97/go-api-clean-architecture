@@ -5,16 +5,19 @@ import (
 	"github.com/zhamppx97/go-api-clean-architecture/api/v1/customer/model"
 )
 
+// GetDatabaseMock : mock
 func GetDatabaseMock() DatabaseHelper {
 	return DatabaseHelper{
 		Store: make(map[int]model.Customer),
 	}
 }
 
+// DatabaseHelper : database helper
 type DatabaseHelper struct {
 	Store map[int]model.Customer
 }
 
+// CustomerDataSource : datasource
 type CustomerDataSource interface {
 	Add(data *model.Customer) error
 	GetAll() ([]model.Customer, error)
@@ -25,6 +28,7 @@ type customerDataSource struct {
 	Db DatabaseHelper
 }
 
+// NewCustomerDataSource : new customer datasource
 func NewCustomerDataSource(db DatabaseHelper) CustomerDataSource {
 	return &customerDataSource{
 		Db: db,

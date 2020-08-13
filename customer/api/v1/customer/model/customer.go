@@ -1,3 +1,5 @@
+package model
+
 // Customer model
 type Customer struct {
     ID          int           `json:"id" db:"id"`
