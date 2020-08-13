@@ -11,5 +11,5 @@ func main() {
 	// Routes
 	route.NewCustomerRoute(di.ProvideCustomerHandler()).Initial(e)
 	// Listener
-	e.Logger.Fatal(e.Start(":1323"))
+	e.Logger.Fatal(e.Start(":7000"))
 }
